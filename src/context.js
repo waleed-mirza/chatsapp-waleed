@@ -31,7 +31,7 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: "ACTIVE_TOPIC_CHANGE", payload: topics[0] });
   }, [state.textField]);
   if (!socket) {
-    socket = io(":" + String(PORT), {
+    socket = io("/", {
       transports: ["websocket", "polling", "flashsocket"],
     });
   }
