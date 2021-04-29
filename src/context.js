@@ -29,7 +29,7 @@ export const AppProvider = ({ children }) => {
   const topics = Object.keys(state.chats);
   useEffect(() => {
     dispatch({ type: "ACTIVE_TOPIC_CHANGE", payload: topics[0] });
-  }, [state.textField]);
+  }, []);
   if (!socket) {
     socket = io("/", {
       transports: ["websocket", "polling", "flashsocket"],
