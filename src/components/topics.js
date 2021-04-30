@@ -12,7 +12,12 @@ const Topics = () => {
     <div className={classes.topics}>
       <List>
         {topics.map((topic) => (
-          <ListItem button key={topic} onClick={handleActiveTopic}>
+          <ListItem
+            button
+            key={topic}
+            onClick={handleActiveTopic}
+            className={classes.topicbutton}
+          >
             <ListItemText primary={topic} />
           </ListItem>
         ))}

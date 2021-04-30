@@ -29,6 +29,15 @@ export const AppProvider = ({ children }) => {
   const topics = Object.keys(state.chats);
   useEffect(() => {
     dispatch({ type: "ACTIVE_TOPIC_CHANGE", payload: topics[0] });
+    if (socket) {
+      socket.removeAllListeners("chat message");
+      socket.on("chat message", function (message) {
+        dispatch({
+          type: "RECEIVE_MSG",
+          payload: { ...message },
+        });
+      });
+    }
   }, []);
   if (!socket) {
     socket = io("/", {

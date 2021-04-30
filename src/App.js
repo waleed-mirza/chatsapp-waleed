@@ -3,8 +3,10 @@ import Dashboard from "./components/dashboad";
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard />
+    <div style={{ backgroundColor: "#000000", height: "100vh" }}>
+      <div>
+        <Dashboard />
+      </div>
     </div>
   );
 }

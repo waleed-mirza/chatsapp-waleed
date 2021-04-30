@@ -11,7 +11,7 @@ const Chat = () => {
     return (
       <div className={classes.chat}>
         {chats[activeTopic].map((chat, i) => (
-          <div className={classes.flex} key={i}>
+          <div className={classes.flex2} key={i}>
             <Chip label={chat.from} className={classes.chip} />
             <Typography component="p">{chat.msg}</Typography>
           </div>
