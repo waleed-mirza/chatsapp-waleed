@@ -8,6 +8,7 @@ import Topics from "./topics";
 import Chat from "./chat";
 import { GlobalContext } from "../context";
 import Box from "@material-ui/core/Box";
+import { Scrollbars } from "react-custom-scrollbars";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +23,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   flex2: {
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    width: "95%",
+    height: "auto",
+    "& > *": { marginRight: "5px", marginTop: "3px" },
   },
   topics: {
     width: "20%",
@@ -39,6 +44,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-end",
+    overflow: "hidden",
   },
   input: {
     width: "65%",
@@ -56,9 +62,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   topicbutton: {
     marginBottom: "5px",
-    "&:hover": { backgroundColor: "#3E50B4", color: "white" },
+    "&:hover": { backgroundColor: "#FC9B40", color: "white" },
   },
   topicchange: { width: "20%", color: "white!important" },
+  chip: { backgroundColor: "#F50056", color: "#000000" },
 }));
 export default function Dashboad() {
   const {
@@ -84,7 +91,7 @@ export default function Dashboad() {
           <Topics />
           <Chat />
         </div>
-        <Box mt={3}>
+        <Box mt={1}>
           <div className={classes.flex}>
             <Typography
               className={classes.topicchange}
