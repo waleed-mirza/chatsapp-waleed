@@ -14,7 +14,7 @@ const initialState = {
 };
 let socket;
 export const AppProvider = ({ children }) => {
-  const user = "f**k" + Math.random(100).toFixed(2) * 100;
+  const user = "_" + Math.random().toString(36).substr(2, 9);
   const sendMessage = (message) => {
     socket.emit("chat message", message);
     socket.removeAllListeners("chat message");
@@ -40,7 +40,7 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
   if (!socket) {
-    socket = io("/", {
+    socket = io(":" + String(PORT), {
       transports: ["websocket", "polling", "flashsocket"],
     });
   }
