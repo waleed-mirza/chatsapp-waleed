@@ -40,7 +40,9 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
   if (!socket) {
-    socket = io(":" + String(PORT), {
+    // let str = ":" + String(PORT);
+    let str = "/";
+    socket = io(str, {
       transports: ["websocket", "polling", "flashsocket"],
     });
   }
